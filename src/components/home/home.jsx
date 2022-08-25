@@ -6,9 +6,9 @@ const Home = () => {
     return (
         <div className="home">
             <Nav />
-            <Dashboard/>
+            <Dashboard />
         </div>
-    )
+    );
 };
 
 export default Home;
