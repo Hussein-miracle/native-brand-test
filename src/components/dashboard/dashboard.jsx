@@ -5,7 +5,9 @@ import "./dashboard.scss";
 const Dashboard = () => {
     return (
         <div className="dashboard">
-            <DashboardHeader/>
+            <DashboardHeader />
+            <DashboardHeader />
+            <DashboardHeader />
         </div>
     )
 };

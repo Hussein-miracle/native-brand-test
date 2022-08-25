@@ -8,12 +8,19 @@
   box-sizing: border-box;
 }
 
+:root{
+  --orange-bg-1:#FF6600;
+}
+
 body {
   // font-family: "Open Sans Condensed", sans-serif;
   font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ecf0f1;
+
+  
+  
 }
 html,
 body {

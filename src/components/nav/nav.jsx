@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
     Stack,
     Contacts,
@@ -13,8 +14,11 @@ import {
 import "./nav.scss";
 
 const NavItem = ({ iconType, content }) => {
+
     return (
-        <div className="nav-item">
+        <div className="nav-item" style={{
+            backgroundColor: iconType === "layout" && "var(--orange-bg-1)"
+        }}>
             {iconType === "stack" && <Stack />}
             {iconType === "contacts" && <Contacts />}
             {iconType === "copy" && <Copy />}
@@ -22,7 +26,7 @@ const NavItem = ({ iconType, content }) => {
             {iconType === "layout" && <Layout />}
             {iconType === "users" && <Users />}
             <span>{content}</span>
-        </div>
+        </div >
     );
 };
 const NavFooterItem = ({ Icon, text }) => {
@@ -33,7 +37,15 @@ const NavFooterItem = ({ Icon, text }) => {
         </div>
     );
 };
+
+
 const Nav = () => {
+    const [toggled, setToggled] = useState(false);
+
+    const handleToggle = () => {
+        setToggled((prev) => !prev);
+    }
+
     return (
         <nav className="nav">
             <div className="nav-top">
@@ -54,15 +66,18 @@ const Nav = () => {
                 <div className="nav-footer__main">
                     <NavFooterItem Icon={BookOpen} text="Learn AV Designer" />
                     < NavFooterItem Icon={Play} text="Tutorials" />
-                    <div>
-                        <h2>Need Help?</h2>
+                    <div className="nav-footer__main--content">
+                        <h4>Need Help?</h4>
                         <p>Get Support/Feedback</p>
                     </div>
                 </div>
                 <div className="nav-footer__bottom">
-                    <Sun />
+                    <Sun className="sun" />
 
-                    <div className="toggle-btn">
+                    <div onClick={handleToggle} className="toggle-btn" style={{
+                        "--position": toggled === true ? "75%" : "5%",
+                        "--tranX": toggled === true ? "-50%" : "0%"
+                    }}>
 
                     </div>
                 </div>
